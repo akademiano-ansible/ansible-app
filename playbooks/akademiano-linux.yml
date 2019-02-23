@@ -1,0 +1,4 @@
+---
+- hosts: Linux
+  roles:
+    - mrdatamapper.akademiano_linux_common

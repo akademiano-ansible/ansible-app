@@ -1,0 +1,30 @@
+
+- name: dj-wasabi.zabbix-server
+  src: git+git@github.com:akademiano-ansible/ansible-zabbix-server.git
+
+- name: dj-wasabi.zabbix-web
+  src: git+git@github.com:akademiano-ansible/ansible-zabbix-web.git
+
+- name: dj-wasabi.zabbix-agent
+  src: git+git@github.com:akademiano-ansible/ansible-zabbix-agent.git
+
+- name: dj-wasabi.zabbix-proxy
+  src: git+git@github.com:akademiano-ansible/ansible-zabbix-proxy.git
+
+- name: manala.beanstalkd
+  src: git+git@github.com:akademiano-ansible/ansible-role-beanstalkd.git
+
+- name: evrardjp.tinc
+  src: git+git@github.com:akademiano-ansible/ansible-tinc.git
+
+- name: adegtyarev.exim4
+  src: git+git@github.com:akademiano-ansible/ansible-role-exim4.git
+
+- name: pgolm.monit
+  src: git+git@github.com:akademiano-ansible/ansible-role-monit.git
+
+- name: geerlingguy.mysql
+  src: git+git@github.com:akademiano-ansible/ansible-role-mysql.git
+
+- name: petermosmans.dokuwiki
+  src: git+git@github.com:akademiano-ansible/ansible-role-dokuwiki.git

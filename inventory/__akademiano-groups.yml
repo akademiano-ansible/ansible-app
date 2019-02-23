@@ -1,0 +1,80 @@
+Production:
+  children:
+    ProdLNPP:
+Operative:
+  children:
+    Accessory:
+      children:
+        ZabbixServers:
+        AccessoryDbServers:
+        AccessoryWebServers:
+        AnsibleControllers:
+        ZabbixProxy:
+          children:
+            ZabbixProxyLinux:
+            ZabbixProxyOpenWRT:
+    Development:
+      children:
+        DevLNPP:
+
+Linux:
+  children:
+    AnsibleControllers:
+    Routers:
+      children:
+        LinuxRouters:
+        VassalsLinuxRouters:
+    ZabbixProxyLinux:
+    AppServers:
+      children:
+        ZabbixServers:
+    DbServers:
+      children:
+        PostgresqlServers:
+          children:
+            LNPP:
+            AccessoryPostgresqlServers:
+        MysqlServers:
+          children:
+            AccessoryMysqlServers:
+        AccessoryDbServer:
+          children:
+            AccessoryPostgresqlServer:
+            AccessoryMysqlServer:
+    WebServers:
+      children:
+        NginxServers:
+          children:
+            YoutrackServers:
+            NginxProxyServers:
+        PhpServer:
+        AccessoryWebServer:
+          children:
+            ZabbixWebServer:
+            DokuWikiServers:
+        LNPP:
+    LNPP:
+      children:
+        ProdLNPP:
+        DevLNPP:
+    MailServers:
+      children:
+        MailServersInternetSendOnly:
+    YoutrackServers:
+    Tinc:
+
+OpenWRT:
+  children:
+    ZabbixProxyOpenWRT:
+
+Servers:
+  children:
+    Production:
+    Operative:
+
+Workstations:
+
+Tinc:
+  children:
+    tinc_nodes:
+    tinc_spine_nodes:
