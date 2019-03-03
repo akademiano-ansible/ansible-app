@@ -1,3 +1,50 @@
+#base
+- name: mrdatamapper.akademiano_ansible_bootstrap
+  src: git@github.com:akademiano-ansible/ansible-bootstrap.git
+
+- name: mrdatamapper.akademiano_linux_common
+  src: git@github.com:akademiano-ansible/linux-common.git
+
+#network
+- name: mrdatamapper.akademiano_ufw
+  src: git@github.com:akademiano-ansible/ansible-role-ufw.git
+
+- name: mrdatamapper.akademiano_linux_router
+  src: git@github.com:akademiano-ansible/linux-router.git
+
+- name: mrdatamapper.akademiano_dnsmasq
+  src: git@github.com:akademiano-ansible/dnsmasq.git
+
+- name: evrardjp.tinc
+  src: git+git@github.com:akademiano-ansible/ansible-tinc.git
+
+#databases
+- name: geerlingguy.mysql
+  src: git+git@github.com:akademiano-ansible/ansible-role-mysql.git
+
+- name: mrdatamapper.akademiano_postgresql
+  src: git@github.com:akademiano-ansible/postgresql.git
+
+- name: mrdatamapper.akademiano_postgresql_facts
+  src: git@github.com:akademiano-ansible/postgresql_facts.git
+
+#nginx
+- name: mrdatamapper.akademiano_nginx
+  src: git@github.com:akademiano-ansible/nginx.git
+
+- name: mrdatamapper.akademiano_nginx_proxy
+  src: git@github.com:akademiano-ansible/ansible-role-ufw.git
+
+#php
+- name: mrdatamapper.akademiano_php
+  src: git@github.com:akademiano-ansible/php.git
+
+#zabbix
+- name: dj-wasabi.zabbix-agent
+  src: git+git@github.com:akademiano-ansible/ansible-zabbix-agent.git
+
+- name: dj-wasabi.zabbix-proxy
+  src: git+git@github.com:akademiano-ansible/ansible-zabbix-proxy.git
 
 - name: dj-wasabi.zabbix-server
   src: git+git@github.com:akademiano-ansible/ansible-zabbix-server.git
@@ -5,26 +52,41 @@
 - name: dj-wasabi.zabbix-web
   src: git+git@github.com:akademiano-ansible/ansible-zabbix-web.git
 
-- name: dj-wasabi.zabbix-agent
-  src: git+git@github.com:akademiano-ansible/ansible-zabbix-agent.git
+- name: mrdatamapper.akademiano_prepare_zabbix_agent
+  src: git@github.com:akademiano-ansible/ansible-role-zabbix-agent-prepare.git
 
-- name: dj-wasabi.zabbix-proxy
-  src: git+git@github.com:akademiano-ansible/ansible-zabbix-proxy.git
+- name: mrdatamapper.akademiano_prepare_zabbix_proxy
+  src: git@github.com:akademiano-ansible/ansible-role-zabbix-agent-prepare.git
 
-- name: manala.beanstalkd
-  src: git+git@github.com:akademiano-ansible/ansible-role-beanstalkd.git
+- name: mrdatamapper.akademiano_prepare_zabbix_server
+- name: mrdatamapper.akademiano_prepare_zabbix_web
 
-- name: evrardjp.tinc
-  src: git+git@github.com:akademiano-ansible/ansible-tinc.git
+- name: mrdatamapper.akademiano_zabbix_proxy_facts
+  src: git@github.com:akademiano-ansible/zabbix_proxy_facts.git
 
-- name: adegtyarev.exim4
-  src: git+git@github.com:akademiano-ansible/ansible-role-exim4.git
+- name: mrdatamapper.akademiano_zabbix_server_facts
+  src: git@github.com:akademiano-ansible/zabbix_server_facts.git
+
+#services
+- name: mrdatamapper.akademiano_samba
+  src: git@github.com:akademiano-ansible/samba.git
 
 - name: pgolm.monit
   src: git+git@github.com:akademiano-ansible/ansible-role-monit.git
 
-- name: geerlingguy.mysql
-  src: git+git@github.com:akademiano-ansible/ansible-role-mysql.git
+- name: manala.beanstalkd
+  src: git+git@github.com:akademiano-ansible/ansible-role-beanstalkd.git
+
+- name: adegtyarev.exim4
+  src: git+git@github.com:akademiano-ansible/ansible-role-exim4.git
+
+#applications
+- name: mrdatamapper.akademiano_youtrack
+  src: git@github.com:akademiano-ansible/youtrack.git
 
 - name: petermosmans.dokuwiki
   src: git+git@github.com:akademiano-ansible/ansible-role-dokuwiki.git
+
+#development
+- name: mrdatamapper.akademiano_web_projects
+  src: git@github.com:akademiano-ansible/web_projects.git
