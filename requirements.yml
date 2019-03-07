@@ -5,6 +5,9 @@
 - name: mrdatamapper.akademiano_linux_common
   src: git+git@github.com:akademiano-ansible/linux-common.git
 
+- name: geerlingguy.pip
+  src: git+git@github.com:geerlingguy/ansible-role-pip.git
+
 #network
 - name: mrdatamapper.akademiano_ufw
   src: git+git@github.com:akademiano-ansible/ansible-role-ufw.git
@@ -89,6 +92,10 @@
 
 - name: petermosmans.dokuwiki
   src: git+git@github.com:akademiano-ansible/ansible-role-dokuwiki.git
+
+#proxmox
+- name: mrdatamapper.ansible_role_proxmox_kvm
+  src: git+git@github.com:akademiano-ansible/ansible-role-proxmox-kvm.git
 
 #development
 - name: mrdatamapper.akademiano_web_projects

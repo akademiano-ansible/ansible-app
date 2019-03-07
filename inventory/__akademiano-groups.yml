@@ -62,6 +62,7 @@ Linux:
         MailServersInternetSendOnly:
     YoutrackServers:
     Tinc:
+    ProxmoxPve:
 
 OpenWRT:
   children:

@@ -1,0 +1,3 @@
+- hosts: ProxmoxPve  
+  roles:
+    - mrdatamapper.akademiano_proxmox_kvm

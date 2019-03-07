@@ -2,3 +2,4 @@
 - hosts: Linux
   roles:
     - mrdatamapper.akademiano_linux_common
+    - {role: geerlingguy.pip, become: yes}
