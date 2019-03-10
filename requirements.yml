@@ -94,7 +94,7 @@
   src: git+git@github.com:akademiano-ansible/ansible-role-dokuwiki.git
 
 #proxmox
-- name: mrdatamapper.ansible_role_proxmox_kvm
+- name: mrdatamapper.akademiano_proxmox_kvm
   src: git+git@github.com:akademiano-ansible/ansible-role-proxmox-kvm.git
 
 #development
