@@ -1,0 +1,4 @@
+---
+- hosts: PostgresqlServers
+  roles:
+    - mrdatamapper.akademiano_postgresql

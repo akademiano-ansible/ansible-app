@@ -1,0 +1,4 @@
+---
+- hosts: UFW
+  roles:
+    - mrdatamapper.akademiano_ufw

@@ -1,0 +1,4 @@
+---
+- hosts: LinuxRouters
+  roles:
+    - mrdatamapper.akademiano_linux_router

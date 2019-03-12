@@ -1,0 +1,3 @@
+- hosts: Tinc
+  roles:
+    - { role: evrardjp.tinc, become: yes }

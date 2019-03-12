@@ -1,0 +1,8 @@
+---
+- hosts: ZabbixServers
+  roles:
+    - mrdatamapper.akademiano_postgresql_facts
+    - mrdatamapper.akademiano_prepare_zabbix_server
+    - { role: dj-wasabi.zabbix-server, become: yes }
+    - mrdatamapper.akademiano_prepare_zabbix_agent
+    - { role: dj-wasabi.zabbix-agent, become: yes }

@@ -1,0 +1,26 @@
+- hosts: MysqlServers
+  pre_tasks:
+  - name: add mysql apt key
+    apt_key:
+      keyserver: "{{mysql_repository_key_server}}"
+      id: "{{mysql_repository_key_id}}"
+    become: yes
+    when: mysql_repository_key_id is defined
+
+  - name: add mysql repository
+    apt_repository:
+      repo: "{{mysql_repository}}"
+      state: present
+      filename: "{{mysql_repository_name}}"
+    become: yes
+    when: mysql_repository is defined
+
+  - name: upgrade packages
+    apt:
+      upgrade: yes
+      update_cache: yes
+      cache_valid_time: 300
+    become: yes
+
+  roles:
+    - {role: geerlingguy.mysql, become: yes}

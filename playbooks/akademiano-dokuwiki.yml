@@ -1,0 +1,4 @@
+---
+- hosts: DokuWikiServers
+  roles:
+    - { role: petermosmans.dokuwiki, become: yes }

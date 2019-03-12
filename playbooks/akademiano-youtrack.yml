@@ -1,0 +1,4 @@
+---
+- hosts: YoutrackServers
+  roles:
+    - mrdatamapper.akademiano_youtrack

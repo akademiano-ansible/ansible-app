@@ -1,0 +1,4 @@
+---
+- hosts: NginxServers
+  roles:
+    - mrdatamapper.akademiano_nginx

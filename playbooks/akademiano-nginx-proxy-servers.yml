@@ -1,0 +1,7 @@
+---
+
+- import_playbook: akademiano-nginx-servers.yml
+
+- hosts: NginxProxyServers
+  roles:
+    - mrdatamapper.akademiano_nginx_proxy

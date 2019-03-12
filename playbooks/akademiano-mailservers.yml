@@ -1,0 +1,4 @@
+- hosts: MailServers
+  roles:
+    - {role: adegtyarev.exim4, become: yes}
+

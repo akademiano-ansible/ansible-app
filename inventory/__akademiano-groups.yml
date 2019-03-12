@@ -64,6 +64,19 @@ Linux:
     Tinc:
     ProxmoxPve:
 
+UFW:
+  children:
+    LinuxRouters:
+    AppServers:
+    DbServers:
+    WebServers:
+    MailServers:
+    
+    
+ZabbixAgents:
+  children:
+    Servers:
+
 OpenWRT:
   children:
     ZabbixProxyOpenWRT:

@@ -1,0 +1,6 @@
+---
+- hosts: ZabbixAgents
+  roles:
+    - mrdatamapper.akademiano_zabbix_server_facts
+    - mrdatamapper.akademiano_prepare_zabbix_agent
+    - { role: dj-wasabi.zabbix-agent, become: yes, when: ansible_os_family == 'Ubuntu'}

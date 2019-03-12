@@ -1,0 +1,4 @@
+---
+- hosts: PhpServers
+  roles:
+    - mrdatamapper.akademiano_php
