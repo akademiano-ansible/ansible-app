@@ -1,0 +1,62 @@
+---
+- name: Configure ansible manager
+  hosts: AnsibleControllers
+  vars:
+    ansible_group: ansible-managers
+    ansible_first_manager: root
+    ansible_directory: /opt/ansible
+
+    ansible_lib_name: akademiano
+    ansible_dirmode: "u=rwX,g=srwX,o="
+    ansible_filemode: "u=rwX,g=rwX,o="
+
+    ansible_other_libs:
+      - repo: git@github.com:fboender/multi-git-status.git
+        name: multi-git-status
+        bin:
+          - mgitstatus
+
+  tasks:
+
+    - set_fact:
+        ansible_bin_path: "{{ansible_directory}}/bin"
+        ansible_libs_dir: "{{ansible_directory}}/lib"
+        ansible_lib_path: "{{ansible_directory}}/lib/{{ansible_lib_name}}"
+        ansible_local_path: "{{ansible_directory}}/local"
+        ansible_directory_main: "{{ansible_directory}}/main"
+        ansible_data_dir: "{{ansible_directory}}/data"
+        ansible_config_dir: "{{ansible_directory}}/conf"
+        ansible_deploy_key: "{{ansible_directory}}/data/id_deploy_key"
+      changed_when: false
+
+#    - name: prepare bin libs
+#      file:
+#        path: "{{ansible_libs_dir}}/{{item.0.name}}/{{item.1}}"
+#        mode: "+rx"
+#        state: file
+#      loop: "{{ ansible_other_libs|subelements('bin') }}"
+
+#    - name: make link from bin
+#      file:
+#        src: "../lib/{{item.0.name}}/{{item.1}}"
+#        dest: "{{ansible_bin_path}}//{{item.1}}"
+#        state: link
+#      loop: "{{ ansible_other_libs|subelements('bin') }}"
+
+
+    - name: create links in local from lib playbooks
+      file:
+        src: "../../lib/{{ansible_lib_name}}/playbooks/{{item|basename}}"
+        dest: "{{ansible_local_path}}/playbooks/{{item|basename}}"
+        state: link
+      with_fileglob:
+        - "{{ansible_lib_path}}/playbooks/akademiano-*.yml"
+
+    - name: create links in local from lib playbooks
+      file:
+        src: "../../lib/{{ansible_lib_name}}/inventory/{{item|basename}}"
+        dest: "{{ansible_local_path}}/inventory/{{item|basename}}"
+        state: link
+      with_fileglob:
+        - "{{ansible_lib_path}}/inventory/akademiano-*.yml"
+        - "{{ansible_lib_path}}/inventory/__akademiano-*.yml"

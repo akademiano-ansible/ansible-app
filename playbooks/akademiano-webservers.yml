@@ -1,5 +1,5 @@
 ---
 
-- import_playbook: nginx-servers.yml
+- import_playbook: akademiano-nginx-servers.yml
 
-- import_playbook: php-servers.yml
+- import_playbook: akademiano-php-servers.yml

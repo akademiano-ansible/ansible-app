@@ -43,11 +43,11 @@ Linux:
             AccessoryMysqlServer:
     WebServers:
       children:
-        NginxServers:
-          children:
-            YoutrackServers:
-            NginxProxyServers:
-        PhpServer:
+#        NginxServers:
+#          children:
+#            YoutrackServers:
+#            NginxProxyServers:
+#        PhpServer:
         AccessoryWebServer:
           children:
             ZabbixWebServer:
@@ -63,6 +63,16 @@ Linux:
     YoutrackServers:
     Tinc:
     ProxmoxPve:
+
+NginxServers:
+  children:
+    WebServers:
+    AccessoryWebServer:
+PhpServers:
+  children:
+    WebServers:
+    AccessoryWebServer:
+NginxProxyServers:
 
 UFW:
   children:
