@@ -1,9 +1,10 @@
 ---
-- hosts: localhost
+- hosts: Linux
   gather_facts: False
   
   tasks:
-  - include_tasks: akademiano-hostkeys_host.yml
+  - include_tasks: akademiano-hostkeys-host.yml
     loop:  "{{ ansible_play_hosts }}"
     loop_control:
       loop_var: host
+

@@ -22,5 +22,11 @@
       cache_valid_time: 300
     become: yes
 
+  - name: install pymysql
+    apt:
+      name: python3-pymysql
+      state: latest
+    become: yes
+
   roles:
     - {role: geerlingguy.mysql, become: yes}

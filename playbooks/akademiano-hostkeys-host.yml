@@ -4,17 +4,20 @@
     host_address: "{{ hostvars[host]['ansible_host'] | default (host, true) }}"
     cacheable: false
   changed_when: false
+  delegate_to: 127.0.0.1
 
 - set_fact:
     host_port: "{{ hostvars[host]['ansible_port'] | default ('22', true) }}"
     cacheable: false
   changed_when: false
+  delegate_to: 127.0.0.1
 
 - name: "get ssh hostkey {{host}} | {{ host_address }}"
   shell: "ssh-keyscan -p {{host_port}}  -H {{ host_address }} | egrep -v '^#'"
   register: hostkeys_result
   ignore_errors: yes
   changed_when: False
+  delegate_to: 127.0.0.1
 
 - name: "set hostkeys {{host}} | {{ host_address }})"
   known_hosts:
@@ -24,11 +27,13 @@
   loop: "{{ hostkeys_result.stdout_lines }}"
   when: hostkeys_result.rc == 0
   failed_when: false
+  delegate_to: 127.0.0.1
 
 - set_fact:
     host_ip_address: "{{ lookup('dig', host) }}"
     cacheable: false
   when: host_address != host and host != 'localhost'
+  delegate_to: 127.0.0.1
 
 - name: "get ssh hostkey for ip {{host}} | {{ host_ip_address }}"
   shell: "ssh-keyscan -H {{ host_ip_address }} | egrep -v '^#'"
@@ -36,6 +41,7 @@
   ignore_errors: yes
   changed_when: False
   when: host_ip_address is defined and host_ip_address != "NXDOMAIN"
+  delegate_to: 127.0.0.1
 
 - name: "set hostkeys {{host}} | {{ host_ip_address }}"
   known_hosts:
@@ -45,3 +51,4 @@
   loop: "{{ hostkeys_result.stdout_lines }}"
   when: host_ip_address is defined and host_ip_address != "NXDOMAIN" and hostkeysip_result.rc == 0
   failed_when: false
+  delegate_to: 127.0.0.1

@@ -1,5 +1,5 @@
 ---
-- hosts: ZabbixWebServer
+- hosts: ZabbixWebServers
   roles:
     - mrdatamapper.akademiano_postgresql_facts
     - mrdatamapper.akademiano_zabbix_server_facts

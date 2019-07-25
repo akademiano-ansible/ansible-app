@@ -1,6 +1,7 @@
 ---
 Linux:
   children:
+    LXC:
     Ubuntu:
     Debian:
       children:

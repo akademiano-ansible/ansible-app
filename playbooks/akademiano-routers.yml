@@ -2,3 +2,4 @@
 - hosts: LinuxRouters
   roles:
     - mrdatamapper.akademiano_linux_router
+    - mrdatamapper.akademiano_dnsmasq
