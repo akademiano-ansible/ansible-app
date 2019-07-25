@@ -1,0 +1,21 @@
+---
+- hosts: LXC
+  gather_facts: False
+  vars:
+    ansible_host_key_checking: false
+    ansible_ssh_extra_args: "-o StrictHostKeyChecking=no"
+  tasks:
+    - name: add user
+      raw: "cat /etc/passwd | grep -q {{linux_default_user}} || adduser --quiet --disabled-password --gecos '' {{linux_default_user}}"
+
+    - name: set user password
+      raw: "echo -e '{{linux_default_user_password}}\n{{linux_default_user_password}}' | passwd {{linux_default_user}}"
+
+    - name: add user to sudo group
+      raw: "usermod -a -G  sudo {{linux_default_user}}"
+
+    - name: add ssh key
+      raw: "mkdir /home/{{linux_default_user}}/.ssh; echo \"{{linux_default_user_ssh_pub}}\n\" > /home/{{linux_default_user}}/.ssh/authorized_keys; chmod 0700 /home/{{linux_default_user}}/.ssh; chmod 0600 /home/{{linux_default_user}}/.ssh/authorized_keys; chown -R user:user /home/{{linux_default_user}}/.ssh"
+
+    - name: install python 2
+      raw: test -e /usr/bin/python || (apt -y update && apt install -y python)

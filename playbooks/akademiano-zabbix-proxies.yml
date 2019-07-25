@@ -1,0 +1,6 @@
+---
+- hosts: ZabbixProxiesLinux
+  roles:
+    - mrdatamapper.akademiano_zabbix_server_facts
+    - mrdatamapper.akademiano_prepare_zabbix_proxy
+    - { role: dj-wasabi.zabbix-proxy, become: yes}

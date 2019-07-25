@@ -86,6 +86,9 @@
 - name: adegtyarev.exim4
   src: git+git@github.com:akademiano-ansible/ansible-role-exim4.git
 
+- name: bertvv.vsftpd
+  src: git+git@github.com:akademiano-ansible/ansible-role-vsftpd.git
+
 #applications
 - name: mrdatamapper.akademiano_youtrack
   src: git+git@github.com:akademiano-ansible/youtrack.git
