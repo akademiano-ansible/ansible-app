@@ -38,6 +38,7 @@ Linux:
         MysqlServers:
           children:
             AccessoryMysqlServers:
+        RedisServers:
         AccessoryDbServer:
           children:
             AccessoryPostgresqlServer:
@@ -54,6 +55,7 @@ Linux:
             ZabbixWebServer:
             DokuWikiServers:
         LNPP:
+        NextcloudServers:
     LNPP:
       children:
         ProdLNPP:
@@ -65,6 +67,7 @@ Linux:
     Tinc:
     ProxmoxPve:
     FtpServers:
+    NextcloudServers:
 
 NginxServers:
   children:

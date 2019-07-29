@@ -59,10 +59,10 @@
   src: git+git@github.com:akademiano-ansible/ansible-role-zabbix-agent-prepare.git
 
 - name: mrdatamapper.akademiano_prepare_zabbix_proxy
-  src: git+git@github.com:akademiano-ansible/ansible-role-zabbix-agent-prepare.git
+  src: git+git@github.com:akademiano-ansible/ansible-role-zabbix-proxy-prepare.git
 
 - name: mrdatamapper.akademiano_prepare_zabbix_server
-  src: git+git@github.com:akademiano-ansible/ansible-zabbix-server.git
+  src: git+git@github.com:akademiano-ansible/prepare_zabbix_server.git
 
 - name: mrdatamapper.akademiano_prepare_zabbix_web
   src: git+git@github.com:akademiano-ansible/prepare_zabbix_web.git
