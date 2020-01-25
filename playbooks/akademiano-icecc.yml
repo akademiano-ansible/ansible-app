@@ -1,0 +1,36 @@
+---
+- hosts: Linux
+
+  tasks:
+    - name: iccec | sheduler | host
+      lineinfile:
+        path: /etc/icecc/icecc.conf
+        regexp: '^ICECC_SCHEDULER_HOST='
+        line: "ICECC_SCHEDULER_HOST=\"{{ icecc_sheduler_host }}\""
+      become: yes
+
+    - name: iccec | jobs count
+      lineinfile:
+        path: /etc/icecc/icecc.conf
+        regexp: '^ICECC_MAX_JOBS='
+        line: "ICECC_MAX_JOBS=\"{{ icecc_max_jobs | default (\"1\") }}\""
+      become: yes
+
+    - name: iccec | allow remote
+      lineinfile:
+        path: /etc/icecc/icecc.conf
+        regexp: '^ICECC_ALLOW_REMOTE='
+        line: "ICECC_ALLOW_REMOTE=\"{{ icecc_allow_remote  | default (\"no\") }}\""
+      become: yes
+
+    - name: iccec | sheduler | enabled or disable
+      systemd:
+        name: icecc-scheduler
+        enabled: "{{ icecc_sheduler_enabled | default (\"no\") }}"
+      become: yes
+
+    - name: iccec | iccecd | restart
+      systemd:
+        name: iceccd
+        state: restarted
+      become: yes

@@ -1,0 +1,6 @@
+---
+- import_playbook: akademiano-db-postgresql.yml
+
+- hosts: TimescaledbServers
+  roles:
+    - egeneralov.timescaledb

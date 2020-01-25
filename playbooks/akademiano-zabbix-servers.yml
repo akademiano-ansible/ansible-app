@@ -6,3 +6,25 @@
     - { role: dj-wasabi.zabbix-server, become: yes }
     - mrdatamapper.akademiano_prepare_zabbix_agent
     - { role: dj-wasabi.zabbix-agent, become: yes }
+
+  tasks:
+    - name: Check ufw exist and enable
+      shell: test -e /usr/sbin/ufw
+      become: yes
+      register: ufw_test_output
+      changed_when: false
+      ignore_errors: yes
+    - name: Open UFW for zabbix server
+      ufw:
+        rule: allow
+        port: '10051'
+        proto: tcp
+      become: yes
+      when: ufw_test_output is defined and ufw_test_output.rc == 0
+    - name: Open UFW for zabbix agent
+      ufw:
+        rule: allow
+        port: '10050'
+        proto: tcp
+      become: yes
+      when: ufw_test_output is defined and ufw_test_output.rc == 0

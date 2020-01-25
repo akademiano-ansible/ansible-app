@@ -1,0 +1,6 @@
+---
+- import_playbook: akademiano-db-timescaledb.yml
+- import_playbook: akademiano-zabbix-servers.yml
+- import_playbook: akademiano-nginx-servers.yml
+- import_playbook: akademiano-php-servers.yml
+- import_playbook: akademiano-zabbix-web.yml

@@ -1,0 +1,101 @@
+---
+
+DatabaseServers:
+  children:
+    PostgresqlServers:
+      children:
+        TimescaledbServers:
+          children:
+            ZabbixDatabaseServers:
+    MysqlServers:
+    RedisServers:
+
+Zabbix:
+  children:
+    ZabbixServerParts:
+      children:
+        ZabbixServers:
+        ZabbixProxies:
+        ZabbixWebServers:
+        ZabbixDatabaseServers:
+    ZabbixAgents:
+
+MailServers:
+  children:
+    EximServers:
+    SmtpClients:
+
+WebServers:
+  children:
+    NginxServers:
+      children:
+        NginxProxyServers:
+        YoutrackServers:
+        ZabbixWebServers:
+        DokuWikiServers:
+        WebDevServers:
+        WebProdServers:
+    PhpServers:
+      children:
+        ZabbixWebServers:
+        DokuWikiServers:
+        WebDevServers:
+        WebProdServers:
+
+DnsServers:
+  children:
+    LinuxDnsServers:
+      children:
+        DnsmasqServers:
+
+Proxmox:
+  children:
+    ProxmoxServers:
+    ProxmoxLinuxGuests:
+HyperV:
+  children:
+    HyperVServers:
+    HyperVLinuxGuests:
+
+Hypervisors:
+  children:
+    ProxmoxServers:
+    HyperVServers:
+
+LinuxGuests:
+  children:
+    ProxmoxLinuxGuests:
+    HyperLinuxGuests:
+
+# os relations
+Linux:
+  children:
+    DatabaseServers:
+    ZabbixServerParts:
+    MailServers:
+    WebServers:
+    AnsibleControllers:
+    LinuxRouters:
+    FtpServers:
+    UFWShielded:
+    TincNodes:
+    LinuxDnsServers:
+    LinuxGuests:
+
+Debian:
+  children:
+    ProxmoxServers:
+
+UFWShielded:
+  children:
+    Debian:
+    Ubuntu:
+
+Icecc:
+  children:
+    IceccBuildServers:
+    IceccBuildClients:
+
+ZabbixAgents:
+  children:
+    Linux:

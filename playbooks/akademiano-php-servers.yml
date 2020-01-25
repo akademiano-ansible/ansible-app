@@ -1,4 +1,5 @@
 ---
 - hosts: PhpServers
   roles:
+    - egeneralov.postgresql-repository
     - mrdatamapper.akademiano_php

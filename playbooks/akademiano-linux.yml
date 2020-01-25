@@ -1,5 +1,6 @@
 ---
 - hosts: Linux
+  gather_facts: True
   roles:
     - mrdatamapper.akademiano_linux_common
     - {role: geerlingguy.pip, become: yes}

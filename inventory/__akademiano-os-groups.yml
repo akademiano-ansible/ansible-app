@@ -1,8 +1,10 @@
 ---
+
 Linux:
   children:
-    LXC:
     Ubuntu:
     Debian:
-      children:
-        Proxmox:
+OpenWRT:
+RouterOS:
+Tomato:
+Windows:

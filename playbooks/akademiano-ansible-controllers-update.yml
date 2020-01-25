@@ -17,7 +17,6 @@
           - mgitstatus
 
   tasks:
-
     - set_fact:
         ansible_bin_path: "{{ansible_directory}}/bin"
         ansible_libs_dir: "{{ansible_directory}}/lib"
@@ -44,7 +43,7 @@
 #      loop: "{{ ansible_other_libs|subelements('bin') }}"
 
 
-    - name: create links in local from lib playbooks
+    - name: create links in local playbooks from lib
       file:
         src: "../../lib/{{ansible_lib_name}}/playbooks/{{item|basename}}"
         dest: "{{ansible_local_path}}/playbooks/{{item|basename}}"
@@ -52,7 +51,7 @@
       with_fileglob:
         - "{{ansible_lib_path}}/playbooks/akademiano-*.yml"
 
-    - name: create links in local from lib playbooks
+    - name: create links in local inventory from lib
       file:
         src: "../../lib/{{ansible_lib_name}}/inventory/{{item|basename}}"
         dest: "{{ansible_local_path}}/inventory/{{item|basename}}"

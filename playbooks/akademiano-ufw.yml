@@ -1,4 +1,4 @@
 ---
-- hosts: UFW
+- hosts: UFWShielded
   roles:
     - mrdatamapper.akademiano_ufw

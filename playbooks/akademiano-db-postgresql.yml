@@ -1,4 +1,5 @@
 ---
 - hosts: PostgresqlServers
   roles:
-    - mrdatamapper.akademiano_postgresql
+    - egeneralov.postgresql-repository
+    - egeneralov.postgresql
