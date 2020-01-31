@@ -2,6 +2,13 @@
 - hosts: Linux
 
   tasks:
+    - name: iccec | sheduler | netname
+      lineinfile:
+        path: /etc/icecc/icecc.conf
+        regexp: '^ICECC_NETNAME='
+        line: "ICECC_NETNAME=\"{{ icecc_sheduler_netname| default (\"MASTER\") }}\""
+      become: yes
+
     - name: iccec | sheduler | host
       lineinfile:
         path: /etc/icecc/icecc.conf
