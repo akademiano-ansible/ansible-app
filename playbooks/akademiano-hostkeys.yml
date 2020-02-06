@@ -6,7 +6,9 @@
   
   tasks:
   - apt:
-      name: python-dnspython
+      name:
+        - python-dnspython
+        - python3-dnspython
       state: present
     become: yes
     become_user: root
