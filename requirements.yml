@@ -9,6 +9,10 @@
   src: git+git@github.com:geerlingguy/ansible-role-pip.git
 
 #network
+
+- name: adfinis-sygroup.ssh
+  src: git+git@github.com:akademiano-ansible/ansible-role-ssh.git
+
 - name: mrdatamapper.akademiano_ufw
   src: git+git@github.com:akademiano-ansible/ansible-role-ufw.git
 
@@ -25,8 +29,14 @@
 - name: geerlingguy.mysql
   src: git+git@github.com:akademiano-ansible/ansible-role-mysql.git
 
-- name: mrdatamapper.akademiano_postgresql
-  src: git+git@github.com:akademiano-ansible/postgresql.git
+- name: egeneralov.postgresql-repository
+  src: git+git@github.com:akademiano-ansible/ansible-role-postgresql-repository.git
+
+- name: egeneralov.postgresql
+  src: git+git@github.com:akademiano-ansible/ansible-role-postgresql.git
+
+- name: egeneralov.timescaledb
+  src: git+git@github.com:akademiano-ansible/ansible-role-timescaledb.git
 
 - name: mrdatamapper.akademiano_postgresql_facts
   src: git+git@github.com:akademiano-ansible/postgresql_facts.git
@@ -36,11 +46,19 @@
   src: git+git@github.com:akademiano-ansible/nginx.git
 
 - name: mrdatamapper.akademiano_nginx_proxy
-  src: git+git@github.com:akademiano-ansible/ansible-role-ufw.git
+  src: git+git@github.com:akademiano-ansible/nginx-proxy.git
 
 #php
 - name: mrdatamapper.akademiano_php
   src: git+git@github.com:akademiano-ansible/php.git
+
+#zabbix 2
+- name: egeneralov.zabbix-repository
+  src: git+git@github.com:akademiano-ansible/ansible-role-zabbix-repository.git
+- name: egeneralov.zabbix-server
+  src: git+git@github.com:akademiano-ansible/ansible-role-zabbix-server.git
+- name: egeneralov.zabbix_proxy
+  src: git+git@github.com:akademiano-ansible/ansible-role-zabbix-proxy.git
 
 #zabbix
 - name: dj-wasabi.zabbix-agent
@@ -86,9 +104,6 @@
 - name: adegtyarev.exim4
   src: git+git@github.com:akademiano-ansible/ansible-role-exim4.git
 
-- name: bertvv.vsftpd
-  src: git+git@github.com:akademiano-ansible/ansible-role-vsftpd.git
-
 #applications
 - name: mrdatamapper.akademiano_youtrack
   src: git+git@github.com:akademiano-ansible/youtrack.git
@@ -99,7 +114,3 @@
 #proxmox
 - name: mrdatamapper.akademiano_proxmox_kvm
   src: git+git@github.com:akademiano-ansible/ansible-role-proxmox-kvm.git
-
-#development
-- name: mrdatamapper.akademiano_web_projects
-  src: git+git@github.com:akademiano-ansible/web_projects.git
